@@ -54,6 +54,33 @@ const GAMES_DEFAULT = [
         description: "Plongez dans Los Santos, une métropole fictive remplie d'action.",
         price: 14.99,
         image: "https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png"
+    },
+    {
+        id: 7,
+        name: "Cyberpunk 2077",
+        year: 2020,
+        developer: "CD Projekt Red",
+        description: "Plongez dans Night City, une mégalopole futuriste obsédée par le pouvoir et la technologie.",
+        price: 29.99,
+        image: "https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg"
+    },
+    {
+        id: 8,
+        name: "Minecraft",
+        year: 2011,
+        developer: "Mojang Studios",
+        description: "Construisez, explorez et survivez dans un monde de blocs aux possibilités infinies.",
+        price: 19.99,
+        image: "https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png"
+    },
+    {
+        id: 9,
+        name: "Horizon Forbidden West",
+        year: 2022,
+        developer: "Guerrilla Games",
+        description: "Aloy explore l'Ouest interdit pour stopper une menace qui pourrait détruire toute vie sur Terre.",
+        price: 39.99,
+        image: "https://upload.wikimedia.org/wikipedia/en/6/69/Horizon_Forbidden_West_cover_art.jpg"
     }
 ];
 
