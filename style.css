@@ -174,6 +174,42 @@ main h2 {
     font-size: 1.6rem;
 }
 
+/* Catalog header */
+.catalog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.sort-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sort-controls label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.sort-controls select {
+    background: var(--bg-light);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.sort-controls select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
 /* Games grid */
 .games-grid {
     display: grid;

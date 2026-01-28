@@ -32,7 +32,20 @@
 
     <main>
         <section id="catalogView">
-            <h2>Catalogue</h2>
+            <div class="catalog-header">
+                <h2>Catalogue</h2>
+                <div class="sort-controls">
+                    <label for="sortSelect">Trier par :</label>
+                    <select id="sortSelect" onchange="renderGames()">
+                        <option value="name-asc">Nom (A-Z)</option>
+                        <option value="name-desc">Nom (Z-A)</option>
+                        <option value="price-asc">Prix (croissant)</option>
+                        <option value="price-desc">Prix (décroissant)</option>
+                        <option value="year-desc">Date (récent)</option>
+                        <option value="year-asc">Date (ancien)</option>
+                    </select>
+                </div>
+            </div>
             <div id="gamesGrid" class="games-grid"></div>
         </section>
 

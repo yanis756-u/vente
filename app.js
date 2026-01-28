@@ -1054,10 +1054,36 @@ function updateAuthUI() {
 
 // ============ Catalogue ============
 
+function sortGames(games) {
+    const sortValue = document.getElementById("sortSelect").value;
+    const [field, order] = sortValue.split("-");
+
+    return [...games].sort((a, b) => {
+        let valA, valB;
+        if (field === "name") {
+            valA = a.name.toLowerCase();
+            valB = b.name.toLowerCase();
+        } else if (field === "price") {
+            valA = a.price;
+            valB = b.price;
+        } else if (field === "year") {
+            valA = a.year;
+            valB = b.year;
+        }
+
+        if (order === "asc") {
+            return valA > valB ? 1 : valA < valB ? -1 : 0;
+        } else {
+            return valA < valB ? 1 : valA > valB ? -1 : 0;
+        }
+    });
+}
+
 function renderGames() {
     const games = getGames();
     const query = document.getElementById("searchInput").value.toLowerCase();
-    const filtered = games.filter(g => g.name.toLowerCase().includes(query));
+    let filtered = games.filter(g => g.name.toLowerCase().includes(query));
+    filtered = sortGames(filtered);
     const grid = document.getElementById("gamesGrid");
     const user = getCurrentUser();
 
