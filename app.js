@@ -8,7 +8,7 @@ const GAMES_DEFAULT = [
         developer: "Nintendo",
         description: "Explorez le vaste monde d'Hyrule dans cette suite épique de Breath of the Wild.",
         price: 59.99,
-        image: "https://upload.wikimedia.org/wikipedia/en/f/fb/The_Legend_of_Zelda_Tears_of_the_Kingdom_cover.jpg"
+        image: "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch/70010000063714/7c0c3237f37c84fea77dd44399da4e61f21d4ef0d8f3d6e68eab2e46fbe1e3eb"
     },
     {
         id: 2,
@@ -17,7 +17,7 @@ const GAMES_DEFAULT = [
         developer: "Santa Monica Studio",
         description: "Kratos et Atreus affrontent les dieux nordiques dans cette aventure épique.",
         price: 49.99,
-        image: "https://upload.wikimedia.org/wikipedia/en/e/ee/God_of_War_Ragnar%C3%B6k_cover.jpg"
+        image: "https://cdn.akamai.steamstatic.com/steam/apps/2322010/header.jpg"
     },
     {
         id: 3,
@@ -26,7 +26,7 @@ const GAMES_DEFAULT = [
         developer: "FromSoftware",
         description: "Un RPG en monde ouvert créé par Hidetaka Miyazaki et George R.R. Martin.",
         price: 39.99,
-        image: "https://upload.wikimedia.org/wikipedia/en/b/b9/Elden_Ring_Box_art.jpg"
+        image: "https://cdn.akamai.steamstatic.com/steam/apps/1245620/header.jpg"
     },
     {
         id: 4,
@@ -35,7 +35,7 @@ const GAMES_DEFAULT = [
         developer: "Rockstar Games",
         description: "Vivez une épopée western dans l'Amérique de 1899 avec Arthur Morgan.",
         price: 29.99,
-        image: "https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg"
+        image: "https://cdn.akamai.steamstatic.com/steam/apps/1174180/header.jpg"
     },
     {
         id: 5,
@@ -44,7 +44,7 @@ const GAMES_DEFAULT = [
         developer: "CD Projekt Red",
         description: "Incarnez Geralt de Riv dans ce RPG primé à monde ouvert.",
         price: 19.99,
-        image: "https://upload.wikimedia.org/wikipedia/en/0/06/Witcher_3_cover_art.jpg"
+        image: "https://cdn.akamai.steamstatic.com/steam/apps/292030/header.jpg"
     },
     {
         id: 6,
@@ -53,7 +53,7 @@ const GAMES_DEFAULT = [
         developer: "Rockstar Games",
         description: "Plongez dans Los Santos, une métropole fictive remplie d'action.",
         price: 14.99,
-        image: "https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png"
+        image: "https://cdn.akamai.steamstatic.com/steam/apps/271590/header.jpg"
     },
     {
         id: 7,
@@ -62,7 +62,7 @@ const GAMES_DEFAULT = [
         developer: "CD Projekt Red",
         description: "Plongez dans Night City, une mégalopole futuriste obsédée par le pouvoir et la technologie.",
         price: 29.99,
-        image: "https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg"
+        image: "https://cdn.akamai.steamstatic.com/steam/apps/1091500/header.jpg"
     },
     {
         id: 8,
@@ -71,7 +71,7 @@ const GAMES_DEFAULT = [
         developer: "Mojang Studios",
         description: "Construisez, explorez et survivez dans un monde de blocs aux possibilités infinies.",
         price: 19.99,
-        image: "https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png"
+        image: "https://www.minecraft.net/content/dam/games/minecraft/key-art/Minecraft-Java-Bedrock-Edition-Catalogue-Image-2021.jpg"
     },
     {
         id: 9,
@@ -80,7 +80,7 @@ const GAMES_DEFAULT = [
         developer: "Guerrilla Games",
         description: "Aloy explore l'Ouest interdit pour stopper une menace qui pourrait détruire toute vie sur Terre.",
         price: 39.99,
-        image: "https://upload.wikimedia.org/wikipedia/en/6/69/Horizon_Forbidden_West_cover_art.jpg"
+        image: "https://cdn.akamai.steamstatic.com/steam/apps/2420110/header.jpg"
     },
     {
         id: 10,
@@ -89,7 +89,7 @@ const GAMES_DEFAULT = [
         developer: "Insomniac Games",
         description: "Peter Parker et Miles Morales unissent leurs forces pour affronter de nouveaux ennemis à New York.",
         price: 59.99,
-        image: "https://upload.wikimedia.org/wikipedia/en/0/0c/Spider-Man_2_PS5_cover_art.jpg"
+        image: "https://image.api.playstation.com/vulcan/ap/rnd/202306/1219/1c7b75d8ed9271516546560d219ad0b22ee0a263b4537bd8.png"
     },
     {
         id: 11,
@@ -98,7 +98,7 @@ const GAMES_DEFAULT = [
         developer: "Capcom",
         description: "Leon S. Kennedy part en mission pour sauver la fille du président dans ce remake du classique survival horror.",
         price: 39.99,
-        image: "https://upload.wikimedia.org/wikipedia/en/d/df/RE4_Remake_cover_art.jpg"
+        image: "https://cdn.akamai.steamstatic.com/steam/apps/2050650/header.jpg"
     },
     {
         id: 12,
@@ -107,7 +107,7 @@ const GAMES_DEFAULT = [
         developer: "EA Sports",
         description: "Le jeu de football incontournable avec les meilleurs clubs et joueurs du monde.",
         price: 49.99,
-        image: "https://upload.wikimedia.org/wikipedia/en/a/a6/EA_Sports_FC_24_cover.jpg"
+        image: "https://cdn.akamai.steamstatic.com/steam/apps/2195250/header.jpg"
     },
     {
         id: 13,
@@ -116,7 +116,7 @@ const GAMES_DEFAULT = [
         developer: "Avalanche Software",
         description: "Vivez votre propre aventure dans le monde des sorciers au 19e siècle à Poudlard.",
         price: 44.99,
-        image: "https://upload.wikimedia.org/wikipedia/en/e/e6/Hogwarts_Legacy_cover_art.png"
+        image: "https://cdn.akamai.steamstatic.com/steam/apps/990080/header.jpg"
     },
     {
         id: 14,
@@ -125,7 +125,7 @@ const GAMES_DEFAULT = [
         developer: "FromSoftware",
         description: "Incarnez un shinobi dans le Japon féodal et affrontez des ennemis redoutables.",
         price: 29.99,
-        image: "https://upload.wikimedia.org/wikipedia/en/6/6e/Sekiro_art.jpg"
+        image: "https://cdn.akamai.steamstatic.com/steam/apps/814380/header.jpg"
     },
     {
         id: 15,
@@ -134,7 +134,7 @@ const GAMES_DEFAULT = [
         developer: "Supergiant Games",
         description: "Échappez-vous des Enfers dans ce roguelike d'action primé aux combats nerveux.",
         price: 24.99,
-        image: "https://upload.wikimedia.org/wikipedia/en/1/1b/Hades_cover_art.jpg"
+        image: "https://cdn.akamai.steamstatic.com/steam/apps/1145360/header.jpg"
     },
     {
         id: 16,
@@ -143,7 +143,7 @@ const GAMES_DEFAULT = [
         developer: "Sucker Punch Productions",
         description: "Devenez le fantôme de Tsushima et défendez le Japon contre l'invasion mongole.",
         price: 39.99,
-        image: "https://upload.wikimedia.org/wikipedia/en/b/b6/Ghost_of_Tsushima.jpg"
+        image: "https://cdn.akamai.steamstatic.com/steam/apps/2215430/header.jpg"
     },
     {
         id: 17,
@@ -152,7 +152,7 @@ const GAMES_DEFAULT = [
         developer: "Larian Studios",
         description: "Un RPG épique basé sur Donjons & Dragons avec des choix qui façonnent votre aventure.",
         price: 59.99,
-        image: "https://upload.wikimedia.org/wikipedia/en/1/12/Baldur%27s_Gate_3_cover_art.jpg"
+        image: "https://cdn.akamai.steamstatic.com/steam/apps/1086940/header.jpg"
     },
     {
         id: 18,
@@ -161,7 +161,7 @@ const GAMES_DEFAULT = [
         developer: "ConcernedApe",
         description: "Quittez la ville pour gérer votre propre ferme dans ce jeu de simulation relaxant.",
         price: 14.99,
-        image: "https://upload.wikimedia.org/wikipedia/en/f/fd/Logo_of_Stardew_Valley.png"
+        image: "https://cdn.akamai.steamstatic.com/steam/apps/413150/header.jpg"
     },
     {
         id: 19,
@@ -170,7 +170,7 @@ const GAMES_DEFAULT = [
         developer: "Team Cherry",
         description: "Explorez un vaste royaume souterrain d'insectes dans ce metroidvania captivant.",
         price: 14.99,
-        image: "https://upload.wikimedia.org/wikipedia/en/0/04/Hollow_Knight_first_cover_art.webp"
+        image: "https://cdn.akamai.steamstatic.com/steam/apps/367520/header.jpg"
     },
     {
         id: 20,
@@ -179,7 +179,7 @@ const GAMES_DEFAULT = [
         developer: "Sledgehammer Games",
         description: "Le retour de la franchise FPS mythique avec une campagne et un multijoueur intense.",
         price: 69.99,
-        image: "https://upload.wikimedia.org/wikipedia/en/4/4e/MWIII_Cover_Art.png"
+        image: "https://cdn.akamai.steamstatic.com/steam/apps/3595270/header.jpg"
     }
 ];
 
