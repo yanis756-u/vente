@@ -270,6 +270,186 @@ const GAMES_DEFAULT = [
         description: "Big Boss se réveille d'un coma de 9 ans et part en quête de vengeance dans ce chef-d'œuvre de l'infiltration.",
         price: 14.99,
         image: "https://media.rawg.io/media/games/490/49016e06ae2103881ff6373248843069.jpg"
+    },
+    {
+        id: 31,
+        name: "Death Stranding",
+        year: 2019,
+        developer: "Kojima Productions",
+        description: "Sam Bridges doit reconnecter une Amérique fragmentée dans ce jeu d'action unique de Hideo Kojima.",
+        price: 29.99,
+        image: "https://media.rawg.io/media/games/2ad/2ad87a4a69b1104f02435c14c5196095.jpg"
+    },
+    {
+        id: 32,
+        name: "Persona 5 Royal",
+        year: 2020,
+        developer: "Atlus",
+        description: "Incarnez un lycéen qui mène une double vie de justicier masqué dans ce RPG japonais acclamé.",
+        price: 39.99,
+        image: "https://media.rawg.io/media/games/a9c/a9c789951de65da545d51f664b4f2ce0.jpg"
+    },
+    {
+        id: 33,
+        name: "Disco Elysium",
+        year: 2019,
+        developer: "ZA/UM",
+        description: "Un RPG révolutionnaire où vous incarnez un détective amnésique dans une enquête surréaliste.",
+        price: 34.99,
+        image: "https://media.rawg.io/media/games/840/8408ad3811289a6a5830cae60fb0b62a.jpg"
+    },
+    {
+        id: 34,
+        name: "It Takes Two",
+        year: 2021,
+        developer: "Hazelight Studios",
+        description: "Une aventure coopérative primée où un couple en crise doit collaborer pour retrouver leur taille normale.",
+        price: 29.99,
+        image: "https://media.rawg.io/media/games/d47/d479582ed0a46496ad34f65c7099d7e5.jpg"
+    },
+    {
+        id: 35,
+        name: "Returnal",
+        year: 2021,
+        developer: "Housemarque",
+        description: "Une astronaute coincée dans une boucle temporelle sur une planète hostile dans ce roguelike intense.",
+        price: 49.99,
+        image: "https://media.rawg.io/media/games/673/673f27be4c5dbf37ce3ed0ed5ddf9d8d.jpg"
+    },
+    {
+        id: 36,
+        name: "Deathloop",
+        year: 2021,
+        developer: "Arkane Studios",
+        description: "Éliminez 8 cibles avant minuit pour briser la boucle temporelle sur l'île de Blackreef.",
+        price: 29.99,
+        image: "https://media.rawg.io/media/games/018/01857c5ff9579c48fa8bd76b4d83a946.jpg"
+    },
+    {
+        id: 37,
+        name: "Bloodborne",
+        year: 2015,
+        developer: "FromSoftware",
+        description: "Explorez la ville gothique de Yharnam et affrontez des créatures cauchemardesques dans ce chef-d'œuvre.",
+        price: 19.99,
+        image: "https://media.rawg.io/media/games/214/214b29aeff13a0ae6a70fc4426e85991.jpg"
+    },
+    {
+        id: 38,
+        name: "Demon's Souls",
+        year: 2020,
+        developer: "Bluepoint Games",
+        description: "Le remake sublime du jeu qui a lancé le genre souls-like, exclusif PlayStation 5.",
+        price: 49.99,
+        image: "https://media.rawg.io/media/games/ac3/ac3a89bfbda76082402e42b933c5825a.jpg"
+    },
+    {
+        id: 39,
+        name: "Ratchet & Clank: Rift Apart",
+        year: 2021,
+        developer: "Insomniac Games",
+        description: "Le duo iconique traverse les dimensions dans cette aventure spectaculaire sur PS5.",
+        price: 49.99,
+        image: "https://media.rawg.io/media/games/ccf/ccfd3fd488a8ed61145a3da96c080131.jpg"
+    },
+    {
+        id: 40,
+        name: "Mass Effect Legendary Edition",
+        year: 2021,
+        developer: "BioWare",
+        description: "La trilogie légendaire remastérisée : sauvez la galaxie en tant que Commandant Shepard.",
+        price: 39.99,
+        image: "https://media.rawg.io/media/games/64e/64e2a77f37ddc48d102127234af99886.jpg"
+    },
+    {
+        id: 41,
+        name: "Diablo IV",
+        year: 2023,
+        developer: "Blizzard Entertainment",
+        description: "Affrontez les forces des Enfers dans ce hack'n'slash sombre et addictif en monde ouvert.",
+        price: 59.99,
+        image: "https://media.rawg.io/media/games/77d/77d51f8f4a07c3eecb0f8504027b1bf0.jpg"
+    },
+    {
+        id: 42,
+        name: "Starfield",
+        year: 2023,
+        developer: "Bethesda Game Studios",
+        description: "Explorez plus de 1000 planètes dans ce RPG spatial épique de Bethesda.",
+        price: 59.99,
+        image: "https://media.rawg.io/media/games/ba8/ba82c971336adfd290e4c0eab6504fcf.jpg"
+    },
+    {
+        id: 43,
+        name: "Alan Wake 2",
+        year: 2023,
+        developer: "Remedy Entertainment",
+        description: "Un thriller d'horreur psychologique où réalité et fiction s'entremêlent dangereusement.",
+        price: 49.99,
+        image: "https://media.rawg.io/media/games/5b9/5b963d7633cd640fa2dbc4069d1c6377.jpg"
+    },
+    {
+        id: 44,
+        name: "Lies of P",
+        year: 2023,
+        developer: "Neowiz Games",
+        description: "Une réinterprétation dark souls-like de Pinocchio dans une ville steampunk ravagée.",
+        price: 49.99,
+        image: "https://media.rawg.io/media/games/458/45838becd01e929b6be8b88d655cebfc.jpg"
+    },
+    {
+        id: 45,
+        name: "Sea of Thieves",
+        year: 2018,
+        developer: "Rare",
+        description: "Devenez le pirate de vos rêves dans cette aventure multijoueur en haute mer.",
+        price: 29.99,
+        image: "https://media.rawg.io/media/games/5f6/5f61441e6338e9221f96a8f4c64c7bb8.jpg"
+    },
+    {
+        id: 46,
+        name: "Celeste",
+        year: 2018,
+        developer: "Maddy Makes Games",
+        description: "Aidez Madeline à gravir la montagne Celeste dans ce platformer exigeant et touchant.",
+        price: 14.99,
+        image: "https://media.rawg.io/media/games/594/59487800889ebac294c7c2c070d02356.jpg"
+    },
+    {
+        id: 47,
+        name: "Cuphead",
+        year: 2017,
+        developer: "Studio MDHR",
+        description: "Un run and gun au style cartoon des années 30 avec des boss fights mémorables.",
+        price: 19.99,
+        image: "https://media.rawg.io/media/games/226/2262cea0b385db6cf399f4be831603b0.jpg"
+    },
+    {
+        id: 48,
+        name: "Ori and the Will of the Wisps",
+        year: 2020,
+        developer: "Moon Studios",
+        description: "Un metroidvania sublime où Ori part à la recherche de son ami Ku dans une forêt enchantée.",
+        price: 24.99,
+        image: "https://media.rawg.io/media/games/718/71891d2484a592d871e91dc826707e1c.jpg"
+    },
+    {
+        id: 49,
+        name: "Undertale",
+        year: 2015,
+        developer: "Toby Fox",
+        description: "Un RPG unique où chaque monstre peut être épargné dans cette aventure pleine d'humour et d'émotion.",
+        price: 9.99,
+        image: "https://media.rawg.io/media/games/ffe/ffed87105b14f5beff72ff44a7793fd5.jpg"
+    },
+    {
+        id: 50,
+        name: "Terraria",
+        year: 2011,
+        developer: "Re-Logic",
+        description: "Creusez, combattez et construisez dans ce sandbox 2D aux possibilités infinies.",
+        price: 9.99,
+        image: "https://media.rawg.io/media/games/f46/f466571d536f2e3ea9e815ad17177501.jpg"
     }
 ];
 
