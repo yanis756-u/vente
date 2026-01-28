@@ -450,6 +450,456 @@ const GAMES_DEFAULT = [
         description: "Creusez, combattez et construisez dans ce sandbox 2D aux possibilités infinies.",
         price: 9.99,
         image: "https://media.rawg.io/media/games/f46/f466571d536f2e3ea9e815ad17177501.jpg"
+    },
+    {
+        id: 51,
+        name: "BioShock Infinite",
+        year: 2013,
+        developer: "Irrational Games",
+        description: "Explorez la cité volante de Columbia dans ce FPS narratif aux retournements époustouflants.",
+        price: 19.99,
+        image: "https://media.rawg.io/media/games/fc1/fc1307a2774506b5bd65d7e8424664a7.jpg"
+    },
+    {
+        id: 52,
+        name: "Portal 2",
+        year: 2011,
+        developer: "Valve",
+        description: "Résolvez des puzzles avec votre portail gun dans cette suite hilarante et géniale.",
+        price: 9.99,
+        image: "https://media.rawg.io/media/games/2ba/2bac0e87cf45e5b508f227d281c9252a.jpg"
+    },
+    {
+        id: 53,
+        name: "Half-Life 2",
+        year: 2004,
+        developer: "Valve",
+        description: "Gordon Freeman reprend du service contre le Cartel dans ce FPS légendaire.",
+        price: 9.99,
+        image: "https://media.rawg.io/media/games/b8c/b8c243eaa0fbac8115e0cdccac3f91dc.jpg"
+    },
+    {
+        id: 54,
+        name: "Left 4 Dead 2",
+        year: 2009,
+        developer: "Valve",
+        description: "Survivez à l'apocalypse zombie en coopération avec vos amis dans ce shooter intense.",
+        price: 9.99,
+        image: "https://media.rawg.io/media/games/d58/d588947d4286e7b5e0e12e1bea7d9844.jpg"
+    },
+    {
+        id: 55,
+        name: "Team Fortress 2",
+        year: 2007,
+        developer: "Valve",
+        description: "Le shooter multijoueur classique avec 9 classes uniques et un style cartoon inimitable.",
+        price: 0.00,
+        image: "https://media.rawg.io/media/games/46d/46d98e6910fbc0706e2948a7cc9b10c5.jpg"
+    },
+    {
+        id: 56,
+        name: "Counter-Strike 2",
+        year: 2023,
+        developer: "Valve",
+        description: "La référence du FPS tactique compétitif, maintenant sur Source 2.",
+        price: 0.00,
+        image: "https://media.rawg.io/media/screenshots/7b2/7b2920260f974292970d6c2312991a3d.jpg"
+    },
+    {
+        id: 57,
+        name: "Dota 2",
+        year: 2013,
+        developer: "Valve",
+        description: "Le MOBA légendaire où deux équipes de 5 héros s'affrontent pour détruire l'Ancient adverse.",
+        price: 0.00,
+        image: "https://media.rawg.io/media/games/6fc/6fcf4cd3b17c288821388e6085bb0fc9.jpg"
+    },
+    {
+        id: 58,
+        name: "League of Legends",
+        year: 2009,
+        developer: "Riot Games",
+        description: "Le MOBA le plus populaire au monde avec plus de 160 champions jouables.",
+        price: 0.00,
+        image: "https://media.rawg.io/media/games/78b/78bc81e247fc7e77af700cbd632a9297.jpg"
+    },
+    {
+        id: 59,
+        name: "Valorant",
+        year: 2020,
+        developer: "Riot Games",
+        description: "Un FPS tactique 5v5 où chaque agent possède des capacités uniques.",
+        price: 0.00,
+        image: "https://media.rawg.io/media/games/b11/b11127b9ee3c3701bd15b9af3286d20e.jpg"
+    },
+    {
+        id: 60,
+        name: "Overwatch 2",
+        year: 2022,
+        developer: "Blizzard Entertainment",
+        description: "Le hero shooter de Blizzard revient en free-to-play avec de nouveaux héros et modes.",
+        price: 0.00,
+        image: "https://media.rawg.io/media/games/95a/95a10817d1fc648cff1153f3fa8ef6c5.jpg"
+    },
+    {
+        id: 61,
+        name: "Apex Legends",
+        year: 2019,
+        developer: "Respawn Entertainment",
+        description: "Un Battle Royale nerveux avec des légendes aux capacités uniques.",
+        price: 0.00,
+        image: "https://media.rawg.io/media/games/737/737ea5662211d2e0bbd6f5989189e4f1.jpg"
+    },
+    {
+        id: 62,
+        name: "Fortnite",
+        year: 2017,
+        developer: "Epic Games",
+        description: "Le Battle Royale phénomène avec construction et collaborations pop culture.",
+        price: 0.00,
+        image: "https://media.rawg.io/media/games/d97/d97f663b752a6484df105993f17abb49.jpg"
+    },
+    {
+        id: 63,
+        name: "PUBG: Battlegrounds",
+        year: 2017,
+        developer: "PUBG Corporation",
+        description: "Le Battle Royale qui a lancé le genre : 100 joueurs, un seul survivant.",
+        price: 0.00,
+        image: "https://media.rawg.io/media/games/1bd/1bd2657b81eb0c99338120ad444b24ff.jpg"
+    },
+    {
+        id: 64,
+        name: "Rocket League",
+        year: 2015,
+        developer: "Psyonix",
+        description: "Du football avec des voitures : simple à comprendre, impossible à maîtriser.",
+        price: 0.00,
+        image: "https://media.rawg.io/media/games/8cc/8cce7c0e99dcc43d66c8efd42f9d03e3.jpg"
+    },
+    {
+        id: 65,
+        name: "Fall Guys",
+        year: 2020,
+        developer: "Mediatonic",
+        description: "Un Battle Royale déjanté où 60 joueurs s'affrontent dans des épreuves loufoques.",
+        price: 0.00,
+        image: "https://media.rawg.io/media/games/5eb/5eb49eb2fa0738fdb5bacea557b1bc57.jpg"
+    },
+    {
+        id: 66,
+        name: "Among Us",
+        year: 2018,
+        developer: "Innersloth",
+        description: "Trouvez l'imposteur parmi l'équipage dans ce jeu de déduction sociale addictif.",
+        price: 4.99,
+        image: "https://media.rawg.io/media/games/e74/e74458058b35e01c1ae3feeb39a3f724.jpg"
+    },
+    {
+        id: 67,
+        name: "Phasmophobia",
+        year: 2020,
+        developer: "Kinetic Games",
+        description: "Chassez les fantômes en coopération avec du vrai matériel paranormal.",
+        price: 13.99,
+        image: "https://media.rawg.io/media/screenshots/370/370895ff725d74e26b8d30389222b397.jpg"
+    },
+    {
+        id: 68,
+        name: "Dead by Daylight",
+        year: 2016,
+        developer: "Behaviour Interactive",
+        description: "Un tueur contre quatre survivants dans ce jeu d'horreur asymétrique multijoueur.",
+        price: 19.99,
+        image: "https://media.rawg.io/media/games/e11/e11325e2f89151d31f612e38dee3b6a0.jpg"
+    },
+    {
+        id: 69,
+        name: "Rust",
+        year: 2018,
+        developer: "Facepunch Studios",
+        description: "Survivez dans un monde hostile où les autres joueurs sont votre plus grande menace.",
+        price: 39.99,
+        image: "https://media.rawg.io/media/games/447/4470c1e76f01acfaf5af9c207d1c1c92.jpg"
+    },
+    {
+        id: 70,
+        name: "ARK: Survival Evolved",
+        year: 2017,
+        developer: "Studio Wildcard",
+        description: "Survivez et apprivoisez des dinosaures sur une île mystérieuse.",
+        price: 29.99,
+        image: "https://media.rawg.io/media/games/58a/58ac7f6569259dcc0b60b921869b19fc.jpg"
+    },
+    {
+        id: 71,
+        name: "Subnautica",
+        year: 2018,
+        developer: "Unknown Worlds",
+        description: "Explorez un océan alien magnifique et terrifiant après un crash spatial.",
+        price: 29.99,
+        image: "https://media.rawg.io/media/games/739/73990e3ec9f43a9e8ecafe207fa4f368.jpg"
+    },
+    {
+        id: 72,
+        name: "No Man's Sky",
+        year: 2016,
+        developer: "Hello Games",
+        description: "Explorez un univers infini de 18 quintillions de planètes générées procéduralement.",
+        price: 29.99,
+        image: "https://media.rawg.io/media/games/174/1743b3dd185bda4a7be349347d4064df.jpg"
+    },
+    {
+        id: 73,
+        name: "Outer Wilds",
+        year: 2019,
+        developer: "Mobius Digital",
+        description: "Explorez un système solaire pris dans une boucle temporelle de 22 minutes.",
+        price: 24.99,
+        image: "https://media.rawg.io/media/games/9f4/9f418898f5415668ca47b5f4ab1ecfeb.jpg"
+    },
+    {
+        id: 74,
+        name: "Control",
+        year: 2019,
+        developer: "Remedy Entertainment",
+        description: "Jesse Faden explore le Bureau Fédéral du Contrôle, une agence secrète envahie par une force surnaturelle.",
+        price: 29.99,
+        image: "https://media.rawg.io/media/games/253/2534a46f3da7fa7c315f1387515ca393.jpg"
+    },
+    {
+        id: 75,
+        name: "Prey",
+        year: 2017,
+        developer: "Arkane Studios",
+        description: "Survivez à une invasion alien sur une station spatiale dans ce immersive sim.",
+        price: 29.99,
+        image: "https://media.rawg.io/media/games/e6d/e6de699bd788497f4b52e2f41f9698f2.jpg"
+    },
+    {
+        id: 76,
+        name: "Hitman 3",
+        year: 2021,
+        developer: "IO Interactive",
+        description: "L'Agent 47 termine sa trilogie avec des assassinats créatifs dans le monde entier.",
+        price: 39.99,
+        image: "https://media.rawg.io/media/games/126/126fbd5ceacddc6ad16fc96e50b1265b.jpg"
+    },
+    {
+        id: 77,
+        name: "Splinter Cell: Blacklist",
+        year: 2013,
+        developer: "Ubisoft Toronto",
+        description: "Sam Fisher traque des terroristes dans ce jeu d'infiltration tactique.",
+        price: 19.99,
+        image: "https://media.rawg.io/media/games/de9/de93cd3e51d2c57e33bbf7dade34f25a.jpg"
+    },
+    {
+        id: 78,
+        name: "Watch Dogs 2",
+        year: 2016,
+        developer: "Ubisoft Montréal",
+        description: "Hackez San Francisco en monde ouvert avec Marcus et DedSec.",
+        price: 19.99,
+        image: "https://media.rawg.io/media/games/f52/f52cf6ba08089cd5f1a9c8f7fcc93d1f.jpg"
+    },
+    {
+        id: 79,
+        name: "Far Cry 6",
+        year: 2021,
+        developer: "Ubisoft Toronto",
+        description: "Libérez Yara d'un dictateur dans ce FPS en monde ouvert tropical.",
+        price: 39.99,
+        image: "https://media.rawg.io/media/games/5dd/5dd4d2dd986d2826800bc37fff64aa4f.jpg"
+    },
+    {
+        id: 80,
+        name: "Just Cause 4",
+        year: 2018,
+        developer: "Avalanche Studios",
+        description: "Rico Rodriguez sème le chaos avec son grappin dans ce bac à sable explosif.",
+        price: 19.99,
+        image: "https://media.rawg.io/media/games/02a/02a7f96f5a1156642bc0f827fd1b63f0.jpg"
+    },
+    {
+        id: 81,
+        name: "Saints Row",
+        year: 2022,
+        developer: "Volition",
+        description: "Créez votre empire criminel dans ce reboot déjanté de la série.",
+        price: 29.99,
+        image: "https://media.rawg.io/media/games/253/2538c831423559834329741e44d3c718.jpg"
+    },
+    {
+        id: 82,
+        name: "Sleeping Dogs",
+        year: 2012,
+        developer: "United Front Games",
+        description: "Infiltrez les triades de Hong Kong en tant que flic sous couverture.",
+        price: 14.99,
+        image: "https://media.rawg.io/media/games/3d9/3d9bac98d79bcd2d445f829e8d6be902.jpg"
+    },
+    {
+        id: 83,
+        name: "Yakuza 0",
+        year: 2015,
+        developer: "Ryu Ga Gotoku Studio",
+        description: "Découvrez les origines de Kiryu et Majima dans le Tokyo des années 80.",
+        price: 19.99,
+        image: "https://media.rawg.io/media/games/ca1/ca16da30f86d8f4d36261de45fb35430.jpg"
+    },
+    {
+        id: 84,
+        name: "Dragon Quest XI",
+        year: 2018,
+        developer: "Square Enix",
+        description: "Un JRPG classique et magnifique avec le héros légendaire Luminary.",
+        price: 39.99,
+        image: "https://media.rawg.io/media/games/e04/e041cc430f6b6681477580d3bcddf29f.jpg"
+    },
+    {
+        id: 85,
+        name: "NieR: Automata",
+        year: 2017,
+        developer: "PlatinumGames",
+        description: "Des androïdes combattent pour l'humanité dans ce RPG d'action philosophique.",
+        price: 29.99,
+        image: "https://media.rawg.io/media/games/5a4/5a44112251d70a25291cc33757220fce.jpg"
+    },
+    {
+        id: 86,
+        name: "Monster Hunter: World",
+        year: 2018,
+        developer: "Capcom",
+        description: "Chassez des monstres gigantesques seul ou en coopération dans ce RPG d'action.",
+        price: 29.99,
+        image: "https://media.rawg.io/media/games/21c/21cc15d233117c6809ec86870559e105.jpg"
+    },
+    {
+        id: 87,
+        name: "Devil May Cry 5",
+        year: 2019,
+        developer: "Capcom",
+        description: "Dante, Nero et V affrontent les démons avec style dans ce hack'n'slash spectaculaire.",
+        price: 24.99,
+        image: "https://media.rawg.io/media/games/9fb/9fbf956a16249def7625ab5dc3d09515.jpg"
+    },
+    {
+        id: 88,
+        name: "Bayonetta 3",
+        year: 2022,
+        developer: "PlatinumGames",
+        description: "La sorcière Bayonetta revient pour des combats spectaculaires contre des créatures du multivers.",
+        price: 49.99,
+        image: "https://media.rawg.io/media/games/c30/c30ac50cb13096f5402250bf666a321c.jpg"
+    },
+    {
+        id: 89,
+        name: "Metroid Dread",
+        year: 2021,
+        developer: "MercurySteam",
+        description: "Samus Aran affronte les terrifiants robots E.M.M.I. dans ce metroidvania intense.",
+        price: 49.99,
+        image: "https://media.rawg.io/media/games/c26/c262f8b54b46edc72594c4a9bb8ee13e.jpg"
+    },
+    {
+        id: 90,
+        name: "Fire Emblem: Three Houses",
+        year: 2019,
+        developer: "Intelligent Systems",
+        description: "Dirigez une des trois maisons de l'académie dans ce RPG tactique épique.",
+        price: 49.99,
+        image: "https://media.rawg.io/media/games/530/53081dbd5003f990fa5312404ac3d71a.jpg"
+    },
+    {
+        id: 91,
+        name: "Xenoblade Chronicles 3",
+        year: 2022,
+        developer: "Monolith Soft",
+        description: "Noah et Mio unissent deux nations en guerre dans ce JRPG épique.",
+        price: 49.99,
+        image: "https://media.rawg.io/media/games/ae7/ae7cfc9a66232839112663899d2c8d8d.jpg"
+    },
+    {
+        id: 92,
+        name: "Splatoon 3",
+        year: 2022,
+        developer: "Nintendo",
+        description: "Les batailles d'encre colorées reviennent avec de nouveaux modes et armes.",
+        price: 49.99,
+        image: "https://media.rawg.io/media/games/360/360ac0a839ab0f0d9a70b35d38264cb0.jpg"
+    },
+    {
+        id: 93,
+        name: "Kirby and the Forgotten Land",
+        year: 2022,
+        developer: "HAL Laboratory",
+        description: "Kirby explore un monde 3D post-apocalyptique en avalant tout sur son passage.",
+        price: 49.99,
+        image: "https://media.rawg.io/media/games/42a/42a71f0cbe23185f778c10462faa12d8.jpg"
+    },
+    {
+        id: 94,
+        name: "Pokémon Legends: Arceus",
+        year: 2022,
+        developer: "Game Freak",
+        description: "Explorez la région de Hisui et créez le tout premier Pokédex.",
+        price: 49.99,
+        image: "https://media.rawg.io/media/games/80a/80a3e1060b49c02f901e781b263cd881.jpg"
+    },
+    {
+        id: 95,
+        name: "Luigi's Mansion 3",
+        year: 2019,
+        developer: "Next Level Games",
+        description: "Luigi aspire des fantômes dans un hôtel hanté avec son fidèle Ectoblast G-LU.",
+        price: 49.99,
+        image: "https://media.rawg.io/media/games/3d9/3d972802b9ee793098b73ecf676b687e.jpeg"
+    },
+    {
+        id: 96,
+        name: "Crash Bandicoot 4: It's About Time",
+        year: 2020,
+        developer: "Toys for Bob",
+        description: "Crash et Coco voyagent dans le temps pour arrêter Neo Cortex et N. Tropy.",
+        price: 39.99,
+        image: "https://media.rawg.io/media/games/54a/54a14917b3298bbaacdf9873c3af7229.jpg"
+    },
+    {
+        id: 97,
+        name: "Spyro Reignited Trilogy",
+        year: 2018,
+        developer: "Toys for Bob",
+        description: "Les trois aventures classiques du dragon violet remastérisées magnifiquement.",
+        price: 29.99,
+        image: "https://media.rawg.io/media/games/a50/a505bccdcfdc79970a93574c747f6e0d.jpg"
+    },
+    {
+        id: 98,
+        name: "Sonic Frontiers",
+        year: 2022,
+        developer: "Sonic Team",
+        description: "Sonic explore des îles mystérieuses en monde ouvert pour la première fois.",
+        price: 39.99,
+        image: "https://media.rawg.io/media/games/f2b/f2bc84509d92c95a8ad22caa8c8afa06.jpg"
+    },
+    {
+        id: 99,
+        name: "Dragon Ball Z: Kakarot",
+        year: 2020,
+        developer: "CyberConnect2",
+        description: "Revivez la saga DBZ de l'arc Saiyan à l'arc Buu dans ce RPG d'action.",
+        price: 29.99,
+        image: "https://media.rawg.io/media/games/cf0/cf062fb221995e3e04294ba5f9dabbb9.jpg"
+    },
+    {
+        id: 100,
+        name: "Naruto Shippuden: Ultimate Ninja Storm 4",
+        year: 2016,
+        developer: "CyberConnect2",
+        description: "Le combat ninja ultime avec tous les personnages de Naruto Shippuden.",
+        price: 19.99,
+        image: "https://media.rawg.io/media/games/b1f/b1f0b19226228555d8b93b2f42b22349.jpg"
     }
 ];
 
