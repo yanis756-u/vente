@@ -81,6 +81,105 @@ const GAMES_DEFAULT = [
         description: "Aloy explore l'Ouest interdit pour stopper une menace qui pourrait détruire toute vie sur Terre.",
         price: 39.99,
         image: "https://upload.wikimedia.org/wikipedia/en/6/69/Horizon_Forbidden_West_cover_art.jpg"
+    },
+    {
+        id: 10,
+        name: "Spider-Man 2",
+        year: 2023,
+        developer: "Insomniac Games",
+        description: "Peter Parker et Miles Morales unissent leurs forces pour affronter de nouveaux ennemis à New York.",
+        price: 59.99,
+        image: "https://upload.wikimedia.org/wikipedia/en/0/0c/Spider-Man_2_PS5_cover_art.jpg"
+    },
+    {
+        id: 11,
+        name: "Resident Evil 4 Remake",
+        year: 2023,
+        developer: "Capcom",
+        description: "Leon S. Kennedy part en mission pour sauver la fille du président dans ce remake du classique survival horror.",
+        price: 39.99,
+        image: "https://upload.wikimedia.org/wikipedia/en/d/df/RE4_Remake_cover_art.jpg"
+    },
+    {
+        id: 12,
+        name: "FIFA 24 (EA Sports FC 24)",
+        year: 2023,
+        developer: "EA Sports",
+        description: "Le jeu de football incontournable avec les meilleurs clubs et joueurs du monde.",
+        price: 49.99,
+        image: "https://upload.wikimedia.org/wikipedia/en/a/a6/EA_Sports_FC_24_cover.jpg"
+    },
+    {
+        id: 13,
+        name: "Hogwarts Legacy",
+        year: 2023,
+        developer: "Avalanche Software",
+        description: "Vivez votre propre aventure dans le monde des sorciers au 19e siècle à Poudlard.",
+        price: 44.99,
+        image: "https://upload.wikimedia.org/wikipedia/en/e/e6/Hogwarts_Legacy_cover_art.png"
+    },
+    {
+        id: 14,
+        name: "Sekiro: Shadows Die Twice",
+        year: 2019,
+        developer: "FromSoftware",
+        description: "Incarnez un shinobi dans le Japon féodal et affrontez des ennemis redoutables.",
+        price: 29.99,
+        image: "https://upload.wikimedia.org/wikipedia/en/6/6e/Sekiro_art.jpg"
+    },
+    {
+        id: 15,
+        name: "Hades",
+        year: 2020,
+        developer: "Supergiant Games",
+        description: "Échappez-vous des Enfers dans ce roguelike d'action primé aux combats nerveux.",
+        price: 24.99,
+        image: "https://upload.wikimedia.org/wikipedia/en/1/1b/Hades_cover_art.jpg"
+    },
+    {
+        id: 16,
+        name: "Ghost of Tsushima",
+        year: 2020,
+        developer: "Sucker Punch Productions",
+        description: "Devenez le fantôme de Tsushima et défendez le Japon contre l'invasion mongole.",
+        price: 39.99,
+        image: "https://upload.wikimedia.org/wikipedia/en/b/b6/Ghost_of_Tsushima.jpg"
+    },
+    {
+        id: 17,
+        name: "Baldur's Gate 3",
+        year: 2023,
+        developer: "Larian Studios",
+        description: "Un RPG épique basé sur Donjons & Dragons avec des choix qui façonnent votre aventure.",
+        price: 59.99,
+        image: "https://upload.wikimedia.org/wikipedia/en/1/12/Baldur%27s_Gate_3_cover_art.jpg"
+    },
+    {
+        id: 18,
+        name: "Stardew Valley",
+        year: 2016,
+        developer: "ConcernedApe",
+        description: "Quittez la ville pour gérer votre propre ferme dans ce jeu de simulation relaxant.",
+        price: 14.99,
+        image: "https://upload.wikimedia.org/wikipedia/en/f/fd/Logo_of_Stardew_Valley.png"
+    },
+    {
+        id: 19,
+        name: "Hollow Knight",
+        year: 2017,
+        developer: "Team Cherry",
+        description: "Explorez un vaste royaume souterrain d'insectes dans ce metroidvania captivant.",
+        price: 14.99,
+        image: "https://upload.wikimedia.org/wikipedia/en/0/04/Hollow_Knight_first_cover_art.webp"
+    },
+    {
+        id: 20,
+        name: "Call of Duty: Modern Warfare III",
+        year: 2023,
+        developer: "Sledgehammer Games",
+        description: "Le retour de la franchise FPS mythique avec une campagne et un multijoueur intense.",
+        price: 69.99,
+        image: "https://upload.wikimedia.org/wikipedia/en/4/4e/MWIII_Cover_Art.png"
     }
 ];
 
