@@ -180,6 +180,96 @@ const GAMES_DEFAULT = [
         description: "Le retour de la franchise FPS mythique avec une campagne et un multijoueur intense.",
         price: 69.99,
         image: "https://media.rawg.io/media/games/e9c/e9c042d14515eb3ff7cb4db9fe78e435.jpg"
+    },
+    {
+        id: 21,
+        name: "Assassin's Creed Valhalla",
+        year: 2020,
+        developer: "Ubisoft Montréal",
+        description: "Incarnez Eivor, un Viking légendaire, et menez votre clan des rivages glacés de Norvège à l'Angleterre.",
+        price: 34.99,
+        image: "https://media.rawg.io/media/games/934/9346092ae11bf7582c883869468171cc.jpg"
+    },
+    {
+        id: 22,
+        name: "The Last of Us Part II",
+        year: 2020,
+        developer: "Naughty Dog",
+        description: "Ellie se lance dans une quête impitoyable de vengeance dans un monde ravagé par la pandémie.",
+        price: 39.99,
+        image: "https://media.rawg.io/media/games/909/909974d1c7863c2027241e265fe7011f.jpg"
+    },
+    {
+        id: 23,
+        name: "Final Fantasy VII Remake",
+        year: 2020,
+        developer: "Square Enix",
+        description: "Revivez l'aventure de Cloud Strife et du groupe Avalanche dans ce remake spectaculaire du RPG culte.",
+        price: 44.99,
+        image: "https://media.rawg.io/media/games/d89/d89bd0cf4fcdc10820892980cbba0f49.jpg"
+    },
+    {
+        id: 24,
+        name: "Dark Souls III",
+        year: 2016,
+        developer: "FromSoftware",
+        description: "Affrontez des boss terrifiants dans ce RPG d'action exigeant au monde sombre et fascinant.",
+        price: 24.99,
+        image: "https://media.rawg.io/media/games/da1/da1b267764d77221f07a4386b6548e5a.jpg"
+    },
+    {
+        id: 25,
+        name: "Forza Horizon 5",
+        year: 2021,
+        developer: "Playground Games",
+        description: "Parcourez les paysages variés du Mexique dans ce jeu de course en monde ouvert.",
+        price: 49.99,
+        image: "https://media.rawg.io/media/games/082/082365507ff04d456c700157072d35db.jpg"
+    },
+    {
+        id: 26,
+        name: "Uncharted 4: A Thief's End",
+        year: 2016,
+        developer: "Naughty Dog",
+        description: "Nathan Drake part pour une dernière aventure à la recherche du trésor du pirate Henry Avery.",
+        price: 19.99,
+        image: "https://media.rawg.io/media/games/709/709bf81f874ce5d25d625b37b014cb63.jpg"
+    },
+    {
+        id: 27,
+        name: "Doom Eternal",
+        year: 2020,
+        developer: "id Software",
+        description: "Déchaînez votre fureur sur les hordes de démons dans ce FPS ultra-nerveux et brutal.",
+        price: 29.99,
+        image: "https://media.rawg.io/media/games/3ea/3ea3c9bbd940b6cb7f2139e42d3d443f.jpg"
+    },
+    {
+        id: 28,
+        name: "Animal Crossing: New Horizons",
+        year: 2020,
+        developer: "Nintendo",
+        description: "Créez votre île paradisiaque et vivez au rythme des saisons dans ce jeu de simulation relaxant.",
+        price: 49.99,
+        image: "https://media.rawg.io/media/games/42f/42fe1abd4d7c11ca92d93a0fb0f8662b.jpg"
+    },
+    {
+        id: 29,
+        name: "Super Mario Odyssey",
+        year: 2017,
+        developer: "Nintendo",
+        description: "Mario et son chapeau Cappy parcourent le monde pour sauver la princesse Peach de Bowser.",
+        price: 49.99,
+        image: "https://media.rawg.io/media/games/267/267bd0dbc496f52692487d07d014c061.jpg"
+    },
+    {
+        id: 30,
+        name: "Metal Gear Solid V: The Phantom Pain",
+        year: 2015,
+        developer: "Kojima Productions",
+        description: "Big Boss se réveille d'un coma de 9 ans et part en quête de vengeance dans ce chef-d'œuvre de l'infiltration.",
+        price: 14.99,
+        image: "https://media.rawg.io/media/games/490/49016e06ae2103881ff6373248843069.jpg"
     }
 ];
 
