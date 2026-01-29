@@ -1,0 +1,8 @@
+{
+  "name": "gameshop",
+  "version": "1.0.0",
+  "description": "GameShop - Vente de Jeux Vidéo",
+  "dependencies": {
+    "stripe": "^14.0.0"
+  }
+}

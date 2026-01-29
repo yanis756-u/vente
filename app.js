@@ -1205,7 +1205,17 @@ function confirmPurchase() {
     showCheckout();
 }
 
-// ============ Checkout / Paiement ============
+// ============ Checkout / Paiement Stripe ============
+
+const STRIPE_PUBLIC_KEY = "pk_test_51SuqtZLFhItYjOyipr5xTYfI85qtq2qQpjRL4pf54ehiUGOKXlKbaAgNZIQrtnQaDTtpV0Y8mH4HtRrneRWBDRpq00yWsJ2Qmz";
+let stripe = null;
+let cardElement = null;
+
+function initStripe() {
+    if (!stripe) {
+        stripe = Stripe(STRIPE_PUBLIC_KEY);
+    }
+}
 
 function showCheckout() {
     const cart = getCart();
@@ -1246,53 +1256,56 @@ function renderCheckout() {
     document.getElementById("payBtn").disabled = false;
     document.getElementById("payBtnText").classList.remove("hidden");
     document.getElementById("payBtnLoader").classList.add("hidden");
-}
+    document.getElementById("card-errors").textContent = "";
 
-function formatCardNumber(input) {
-    let value = input.value.replace(/\D/g, "");
-    value = value.substring(0, 16);
-    let formatted = "";
-    for (let i = 0; i < value.length; i++) {
-        if (i > 0 && i % 4 === 0) {
-            formatted += " ";
+    // Initialize Stripe Elements
+    initStripe();
+    const elements = stripe.elements({
+        locale: 'fr'
+    });
+
+    // Clear previous card element if exists
+    const cardContainer = document.getElementById("card-element");
+    cardContainer.innerHTML = "";
+
+    // Create card element with custom style
+    cardElement = elements.create("card", {
+        style: {
+            base: {
+                color: "#e0e0e0",
+                fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+                fontSize: "16px",
+                "::placeholder": {
+                    color: "#a0a0b0"
+                }
+            },
+            invalid: {
+                color: "#e74c3c",
+                iconColor: "#e74c3c"
+            }
         }
-        formatted += value[i];
-    }
-    input.value = formatted;
+    });
+
+    cardElement.mount("#card-element");
+
+    // Handle card errors
+    cardElement.on("change", function(event) {
+        const errorElement = document.getElementById("card-errors");
+        if (event.error) {
+            errorElement.textContent = event.error.message;
+        } else {
+            errorElement.textContent = "";
+        }
+    });
 }
 
-function formatExpiry(input) {
-    let value = input.value.replace(/\D/g, "");
-    value = value.substring(0, 4);
-    if (value.length >= 2) {
-        value = value.substring(0, 2) + "/" + value.substring(2);
-    }
-    input.value = value;
-}
-
-function processPayment(e) {
+async function processPayment(e) {
     e.preventDefault();
 
     const cardName = document.getElementById("cardName").value.trim();
-    const cardNumber = document.getElementById("cardNumber").value.replace(/\s/g, "");
-    const cardExpiry = document.getElementById("cardExpiry").value;
-    const cardCvv = document.getElementById("cardCvv").value;
 
-    // Validation
     if (cardName.length < 2) {
         showToast("Veuillez entrer un nom valide.");
-        return;
-    }
-    if (cardNumber.length !== 16 || !/^\d+$/.test(cardNumber)) {
-        showToast("Numéro de carte invalide (16 chiffres requis).");
-        return;
-    }
-    if (!/^\d{2}\/\d{2}$/.test(cardExpiry)) {
-        showToast("Date d'expiration invalide (MM/AA).");
-        return;
-    }
-    if (!/^\d{3}$/.test(cardCvv)) {
-        showToast("CVV invalide (3 chiffres requis).");
         return;
     }
 
@@ -1300,17 +1313,70 @@ function processPayment(e) {
     document.getElementById("payBtn").disabled = true;
     document.getElementById("payBtnText").classList.add("hidden");
     document.getElementById("payBtnLoader").classList.remove("hidden");
+    document.getElementById("card-errors").textContent = "";
 
-    // Simulate payment processing
-    setTimeout(() => {
-        // Success
-        saveCart([]);
-        document.getElementById("paymentForm").classList.add("hidden");
-        document.querySelector(".checkout-summary").classList.add("hidden");
-        document.querySelector(".checkout-form-container").classList.add("hidden");
-        document.getElementById("paymentSuccess").classList.remove("hidden");
-        updateCartCount();
-    }, 2000);
+    try {
+        // Calculer le total
+        const cart = getCart();
+        const games = getGames();
+        let total = 0;
+        const items = [];
+        cart.forEach(id => {
+            const game = games.find(g => g.id === id);
+            if (game) {
+                total += game.price;
+                items.push(game.name);
+            }
+        });
+
+        // Créer le PaymentIntent via le backend
+        const response = await fetch('/api/create-payment-intent', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ amount: total, items: items })
+        });
+
+        const { clientSecret, error: backendError } = await response.json();
+
+        if (backendError) {
+            throw new Error(backendError);
+        }
+
+        // Confirmer le paiement avec Stripe
+        const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card: cardElement,
+                billing_details: {
+                    name: cardName
+                }
+            }
+        });
+
+        if (error) {
+            document.getElementById("card-errors").textContent = error.message;
+            document.getElementById("payBtn").disabled = false;
+            document.getElementById("payBtnText").classList.remove("hidden");
+            document.getElementById("payBtnLoader").classList.add("hidden");
+            return;
+        }
+
+        if (paymentIntent.status === 'succeeded') {
+            // Paiement réussi !
+            saveCart([]);
+            document.getElementById("paymentForm").classList.add("hidden");
+            document.querySelector(".checkout-summary").classList.add("hidden");
+            document.querySelector(".checkout-form-container").classList.add("hidden");
+            document.getElementById("paymentSuccess").classList.remove("hidden");
+            updateCartCount();
+        }
+
+    } catch (err) {
+        console.error(err);
+        document.getElementById("card-errors").textContent = "Erreur de paiement. Réessayez.";
+        document.getElementById("payBtn").disabled = false;
+        document.getElementById("payBtnText").classList.remove("hidden");
+        document.getElementById("payBtnLoader").classList.add("hidden");
+    }
 }
 
 // ============ Admin ============

@@ -618,13 +618,42 @@ main h2 {
     opacity: 0.6;
 }
 
-.card-row {
-    display: flex;
-    gap: 16px;
+#card-element {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+    transition: border-color 0.2s;
 }
 
-.card-field {
-    flex: 1;
+#card-element:focus-within,
+#card-element.StripeElement--focus {
+    border-color: var(--accent);
+}
+
+#card-element.StripeElement--invalid {
+    border-color: var(--danger);
+}
+
+.card-errors {
+    color: var(--danger);
+    font-size: 0.85rem;
+    margin-top: 8px;
+    min-height: 20px;
+}
+
+.stripe-badge {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: 16px;
+    padding: 10px;
+    background: var(--bg);
+    border-radius: 6px;
+}
+
+.stripe-badge strong {
+    color: #635bff;
 }
 
 #payBtn {
