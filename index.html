@@ -21,6 +21,7 @@
             </div>
             <div id="userInfo" class="hidden">
                 <span id="userName"></span>
+                <button class="btn btn-outline" onclick="showView('orders')">Mes commandes</button>
                 <button id="adminBtn" class="btn btn-accent hidden" onclick="showView('admin')">Admin</button>
                 <button class="btn btn-outline" onclick="logout()">Déconnexion</button>
             </div>
@@ -58,6 +59,12 @@
                 <p class="promo-hint">Vous pourrez entrer un code promo sur la page de paiement</p>
             </div>
             <p id="cartEmpty" class="empty-msg">Votre panier est vide.</p>
+        </section>
+
+        <section id="ordersView" class="hidden">
+            <h2>Mes commandes</h2>
+            <div id="ordersList"></div>
+            <p id="ordersEmpty" class="empty-msg">Aucune commande pour le moment.</p>
         </section>
 
         <section id="adminView" class="hidden">

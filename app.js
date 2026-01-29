@@ -967,6 +967,23 @@ function getCart() {
     return JSON.parse(sessionStorage.getItem("cart")) || [];
 }
 
+function getOrders() {
+    return JSON.parse(localStorage.getItem("orders")) || [];
+}
+
+function saveOrder(order) {
+    const orders = getOrders();
+    orders.push(order);
+    localStorage.setItem("orders", JSON.stringify(orders));
+}
+
+function getUserOrders() {
+    const user = getCurrentUser();
+    if (!user) return [];
+    const orders = getOrders();
+    return orders.filter(order => order.userEmail === user.email).sort((a, b) => new Date(b.date) - new Date(a.date));
+}
+
 function saveCart(cart) {
     sessionStorage.setItem("cart", JSON.stringify(cart));
     updateCartCount();
@@ -1353,11 +1370,62 @@ function resetGameForm() {
     document.getElementById("adminFormTitle").textContent = "Ajouter un jeu";
 }
 
+// ============ Historique des commandes ============
+
+function renderOrderHistory() {
+    const orders = getUserOrders();
+    const container = document.getElementById("ordersList");
+    const emptyMsg = document.getElementById("ordersEmpty");
+
+    if (orders.length === 0) {
+        container.innerHTML = "";
+        emptyMsg.classList.remove("hidden");
+        return;
+    }
+
+    emptyMsg.classList.add("hidden");
+
+    container.innerHTML = orders.map(order => {
+        const date = new Date(order.date);
+        const dateStr = date.toLocaleDateString('fr-FR', {
+            day: '2-digit',
+            month: 'long',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+
+        const itemsHtml = order.items.map(item => `
+            <div class="order-item">
+                <span class="order-item-name">${escapeHtml(item.name)}</span>
+                <span class="order-item-qty">x${item.quantity}</span>
+                <span class="order-item-price">${(item.price * item.quantity).toFixed(2)} &euro;</span>
+            </div>
+        `).join("");
+
+        return `
+            <div class="order-card">
+                <div class="order-header">
+                    <span class="order-id">Commande #${order.id.slice(-8).toUpperCase()}</span>
+                    <span class="order-date">${dateStr}</span>
+                </div>
+                <div class="order-items">
+                    ${itemsHtml}
+                </div>
+                <div class="order-footer">
+                    <span class="order-total">Total : ${order.total.toFixed(2)} &euro;</span>
+                </div>
+            </div>
+        `;
+    }).join("");
+}
+
 // ============ Navigation ============
 
 function showView(view) {
     document.getElementById("catalogView").classList.add("hidden");
     document.getElementById("cartView").classList.add("hidden");
+    document.getElementById("ordersView").classList.add("hidden");
     document.getElementById("adminView").classList.add("hidden");
 
     if (view === "catalog") {
@@ -1366,6 +1434,15 @@ function showView(view) {
     } else if (view === "cart") {
         document.getElementById("cartView").classList.remove("hidden");
         renderCart();
+    } else if (view === "orders") {
+        const user = getCurrentUser();
+        if (!user) {
+            showToast("Connectez-vous pour voir vos commandes.");
+            showView("catalog");
+            return;
+        }
+        document.getElementById("ordersView").classList.remove("hidden");
+        renderOrderHistory();
     } else if (view === "admin") {
         const user = getCurrentUser();
         if (!user || !user.isAdmin) {

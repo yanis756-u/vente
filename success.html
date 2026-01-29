@@ -18,14 +18,62 @@
             <div class="success-icon">&#10003;</div>
             <h2>Paiement réussi !</h2>
             <p>Merci pour votre achat. Vos jeux sont maintenant disponibles.</p>
-            <p class="order-info">Un email de confirmation vous a été envoyé.</p>
+            <div id="orderSummary"></div>
             <a href="/" class="btn btn-primary btn-lg">Retour au catalogue</a>
         </div>
     </main>
 
     <script>
-        // Vider le panier après paiement réussi
-        sessionStorage.removeItem("cart");
+        // Sauvegarder la commande avant de vider le panier
+        (function() {
+            const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+            const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+            const games = JSON.parse(localStorage.getItem("games")) || [];
+
+            if (cart.length > 0 && currentUser) {
+                // Construire la commande
+                let total = 0;
+                const items = cart.map(cartItem => {
+                    const game = games.find(g => g.id === cartItem.id);
+                    if (game) {
+                        const itemTotal = game.price * cartItem.quantity;
+                        total += itemTotal;
+                        return {
+                            id: game.id,
+                            name: game.name,
+                            price: game.price,
+                            quantity: cartItem.quantity
+                        };
+                    }
+                    return null;
+                }).filter(item => item !== null);
+
+                const order = {
+                    id: "order_" + Date.now() + "_" + Math.random().toString(36).substr(2, 9),
+                    userEmail: currentUser.email,
+                    date: new Date().toISOString(),
+                    items: items,
+                    total: total
+                };
+
+                // Sauvegarder la commande
+                const orders = JSON.parse(localStorage.getItem("orders")) || [];
+                orders.push(order);
+                localStorage.setItem("orders", JSON.stringify(orders));
+
+                // Afficher le récapitulatif
+                const summaryHtml = `
+                    <div class="order-recap">
+                        <p class="order-info">Commande #${order.id.slice(-8).toUpperCase()}</p>
+                        <p class="order-total-success">Total payé : ${total.toFixed(2)} €</p>
+                    </div>
+                `;
+                document.getElementById("orderSummary").innerHTML = summaryHtml;
+            }
+
+            // Vider le panier
+            sessionStorage.removeItem("cart");
+        })();
     </script>
 </body>
 </html>
