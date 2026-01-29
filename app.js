@@ -1330,7 +1330,7 @@ async function processPayment(e) {
         });
 
         // Créer le PaymentIntent via le backend
-        const response = await fetch('/api/create-payment-intent', {
+        const response = await fetch('/api/payment', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ amount: total, items: items })
