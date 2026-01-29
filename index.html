@@ -59,6 +59,50 @@
             <p id="cartEmpty" class="empty-msg">Votre panier est vide.</p>
         </section>
 
+        <section id="checkoutView" class="hidden">
+            <h2>Paiement</h2>
+            <div class="checkout-container">
+                <div class="checkout-summary">
+                    <h3>Récapitulatif</h3>
+                    <div id="checkoutItems"></div>
+                    <div class="checkout-total">Total : <span id="checkoutTotal">0.00</span> &euro;</div>
+                </div>
+                <div class="checkout-form-container">
+                    <h3>Informations de paiement</h3>
+                    <form id="paymentForm" onsubmit="processPayment(event)">
+                        <label>Nom sur la carte</label>
+                        <input type="text" id="cardName" placeholder="JEAN DUPONT" required>
+
+                        <label>Numéro de carte</label>
+                        <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCardNumber(this)" required>
+
+                        <div class="card-row">
+                            <div class="card-field">
+                                <label>Date d'expiration</label>
+                                <input type="text" id="cardExpiry" placeholder="MM/AA" maxlength="5" oninput="formatExpiry(this)" required>
+                            </div>
+                            <div class="card-field">
+                                <label>CVV</label>
+                                <input type="text" id="cardCvv" placeholder="123" maxlength="3" pattern="[0-9]{3}" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" id="payBtn" class="btn btn-primary btn-lg">
+                            <span id="payBtnText">Payer <span id="payAmount">0.00</span> &euro;</span>
+                            <span id="payBtnLoader" class="loader hidden"></span>
+                        </button>
+                    </form>
+                    <button class="btn btn-outline btn-lg" onclick="showView('cart')" style="margin-top: 10px;">Retour au panier</button>
+                </div>
+            </div>
+            <div id="paymentSuccess" class="payment-success hidden">
+                <div class="success-icon">&#10003;</div>
+                <h3>Paiement réussi !</h3>
+                <p>Merci pour votre achat. Vos jeux sont maintenant disponibles.</p>
+                <button class="btn btn-primary btn-lg" onclick="showView('catalog')">Retour au catalogue</button>
+            </div>
+        </section>
+
         <section id="adminView" class="hidden">
             <h2>Panel Admin</h2>
             <div class="admin-layout">

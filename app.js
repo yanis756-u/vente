@@ -1174,9 +1174,115 @@ function renderCart() {
 }
 
 function confirmPurchase() {
-    saveCart([]);
-    renderCart();
-    showToast("Achat confirmé ! Merci pour votre commande.");
+    showCheckout();
+}
+
+// ============ Checkout / Paiement ============
+
+function showCheckout() {
+    const cart = getCart();
+    if (cart.length === 0) {
+        showToast("Votre panier est vide.");
+        return;
+    }
+    showView("checkout");
+}
+
+function renderCheckout() {
+    const cart = getCart();
+    const games = getGames();
+    const container = document.getElementById("checkoutItems");
+
+    let total = 0;
+    container.innerHTML = cart.map(id => {
+        const game = games.find(g => g.id === id);
+        if (!game) return "";
+        total += game.price;
+        return `
+            <div class="checkout-item">
+                <span>${escapeHtml(game.name)}</span>
+                <span>${game.price.toFixed(2)} &euro;</span>
+            </div>
+        `;
+    }).join("");
+
+    document.getElementById("checkoutTotal").textContent = total.toFixed(2);
+    document.getElementById("payAmount").textContent = total.toFixed(2);
+
+    // Reset form and show it
+    document.getElementById("paymentForm").reset();
+    document.getElementById("paymentForm").classList.remove("hidden");
+    document.querySelector(".checkout-summary").classList.remove("hidden");
+    document.querySelector(".checkout-form-container").classList.remove("hidden");
+    document.getElementById("paymentSuccess").classList.add("hidden");
+    document.getElementById("payBtn").disabled = false;
+    document.getElementById("payBtnText").classList.remove("hidden");
+    document.getElementById("payBtnLoader").classList.add("hidden");
+}
+
+function formatCardNumber(input) {
+    let value = input.value.replace(/\D/g, "");
+    value = value.substring(0, 16);
+    let formatted = "";
+    for (let i = 0; i < value.length; i++) {
+        if (i > 0 && i % 4 === 0) {
+            formatted += " ";
+        }
+        formatted += value[i];
+    }
+    input.value = formatted;
+}
+
+function formatExpiry(input) {
+    let value = input.value.replace(/\D/g, "");
+    value = value.substring(0, 4);
+    if (value.length >= 2) {
+        value = value.substring(0, 2) + "/" + value.substring(2);
+    }
+    input.value = value;
+}
+
+function processPayment(e) {
+    e.preventDefault();
+
+    const cardName = document.getElementById("cardName").value.trim();
+    const cardNumber = document.getElementById("cardNumber").value.replace(/\s/g, "");
+    const cardExpiry = document.getElementById("cardExpiry").value;
+    const cardCvv = document.getElementById("cardCvv").value;
+
+    // Validation
+    if (cardName.length < 2) {
+        showToast("Veuillez entrer un nom valide.");
+        return;
+    }
+    if (cardNumber.length !== 16 || !/^\d+$/.test(cardNumber)) {
+        showToast("Numéro de carte invalide (16 chiffres requis).");
+        return;
+    }
+    if (!/^\d{2}\/\d{2}$/.test(cardExpiry)) {
+        showToast("Date d'expiration invalide (MM/AA).");
+        return;
+    }
+    if (!/^\d{3}$/.test(cardCvv)) {
+        showToast("CVV invalide (3 chiffres requis).");
+        return;
+    }
+
+    // Show loading
+    document.getElementById("payBtn").disabled = true;
+    document.getElementById("payBtnText").classList.add("hidden");
+    document.getElementById("payBtnLoader").classList.remove("hidden");
+
+    // Simulate payment processing
+    setTimeout(() => {
+        // Success
+        saveCart([]);
+        document.getElementById("paymentForm").classList.add("hidden");
+        document.querySelector(".checkout-summary").classList.add("hidden");
+        document.querySelector(".checkout-form-container").classList.add("hidden");
+        document.getElementById("paymentSuccess").classList.remove("hidden");
+        updateCartCount();
+    }, 2000);
 }
 
 // ============ Admin ============
@@ -1266,6 +1372,7 @@ function resetGameForm() {
 function showView(view) {
     document.getElementById("catalogView").classList.add("hidden");
     document.getElementById("cartView").classList.add("hidden");
+    document.getElementById("checkoutView").classList.add("hidden");
     document.getElementById("adminView").classList.add("hidden");
 
     if (view === "catalog") {
@@ -1274,6 +1381,9 @@ function showView(view) {
     } else if (view === "cart") {
         document.getElementById("cartView").classList.remove("hidden");
         renderCart();
+    } else if (view === "checkout") {
+        document.getElementById("checkoutView").classList.remove("hidden");
+        renderCheckout();
     } else if (view === "admin") {
         const user = getCurrentUser();
         if (!user || !user.isAdmin) {
