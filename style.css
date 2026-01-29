@@ -309,8 +309,56 @@ main h2 {
 }
 
 .cart-item-price {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.cart-item-subtotal {
+    display: block;
     color: var(--success);
     font-weight: 600;
+    font-size: 1.1rem;
+    margin-top: 4px;
+}
+
+.cart-item-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-quantity {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    border-radius: 6px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.btn-quantity:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.quantity-value {
+    min-width: 30px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
 }
 
 .cart-total {
@@ -318,6 +366,57 @@ main h2 {
     font-weight: 700;
     text-align: right;
     margin: 20px 0 10px;
+}
+
+.promo-hint {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: 10px;
+}
+
+/* Success Page */
+.success-page {
+    text-align: center;
+    padding: 80px 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.success-page .success-icon {
+    width: 100px;
+    height: 100px;
+    background: var(--success);
+    color: #fff;
+    font-size: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+    animation: successPop 0.5s ease;
+}
+
+.success-page h2 {
+    font-size: 2rem;
+    color: var(--success);
+    margin-bottom: 16px;
+}
+
+.success-page p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.success-page .order-info {
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+}
+
+.success-page .btn {
+    display: inline-block;
+    text-decoration: none;
 }
 
 .empty-msg {

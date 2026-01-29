@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameShop - Vente de Jeux Vidéo</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
     <header>
@@ -55,44 +54,10 @@
             <div id="cartItems"></div>
             <div id="cartFooter" class="hidden">
                 <div class="cart-total">Total : <span id="cartTotal">0.00</span> &euro;</div>
-                <button class="btn btn-primary btn-lg" onclick="confirmPurchase()">Confirmer l'achat</button>
+                <button class="btn btn-primary btn-lg" onclick="confirmPurchase()">Payer avec Stripe</button>
+                <p class="promo-hint">Vous pourrez entrer un code promo sur la page de paiement</p>
             </div>
             <p id="cartEmpty" class="empty-msg">Votre panier est vide.</p>
-        </section>
-
-        <section id="checkoutView" class="hidden">
-            <h2>Paiement</h2>
-            <div class="checkout-container">
-                <div class="checkout-summary">
-                    <h3>Récapitulatif</h3>
-                    <div id="checkoutItems"></div>
-                    <div class="checkout-total">Total : <span id="checkoutTotal">0.00</span> &euro;</div>
-                </div>
-                <div class="checkout-form-container">
-                    <h3>Informations de paiement</h3>
-                    <form id="paymentForm" onsubmit="processPayment(event)">
-                        <label>Nom sur la carte</label>
-                        <input type="text" id="cardName" placeholder="JEAN DUPONT" required>
-
-                        <label>Carte bancaire</label>
-                        <div id="card-element"></div>
-                        <div id="card-errors" class="card-errors"></div>
-
-                        <button type="submit" id="payBtn" class="btn btn-primary btn-lg">
-                            <span id="payBtnText">Payer <span id="payAmount">0.00</span> &euro;</span>
-                            <span id="payBtnLoader" class="loader hidden"></span>
-                        </button>
-                    </form>
-                    <p class="stripe-badge">Paiement sécurisé par <strong>Stripe</strong> (Mode test)</p>
-                    <button class="btn btn-outline btn-lg" onclick="showView('cart')" style="margin-top: 10px;">Retour au panier</button>
-                </div>
-            </div>
-            <div id="paymentSuccess" class="payment-success hidden">
-                <div class="success-icon">&#10003;</div>
-                <h3>Paiement réussi !</h3>
-                <p>Merci pour votre achat. Vos jeux sont maintenant disponibles.</p>
-                <button class="btn btn-primary btn-lg" onclick="showView('catalog')">Retour au catalogue</button>
-            </div>
         </section>
 
         <section id="adminView" class="hidden">

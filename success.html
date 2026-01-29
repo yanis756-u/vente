@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement réussi - GameShop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <h1 class="logo" onclick="window.location.href='/'">GameShop</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="success-page">
+            <div class="success-icon">&#10003;</div>
+            <h2>Paiement réussi !</h2>
+            <p>Merci pour votre achat. Vos jeux sont maintenant disponibles.</p>
+            <p class="order-info">Un email de confirmation vous a été envoyé.</p>
+            <a href="/" class="btn btn-primary btn-lg">Retour au catalogue</a>
+        </div>
+    </main>
+
+    <script>
+        // Vider le panier après paiement réussi
+        sessionStorage.removeItem("cart");
+    </script>
+</body>
+</html>

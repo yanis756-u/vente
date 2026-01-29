@@ -1144,24 +1144,45 @@ function searchGames() {
 
 function addToCart(gameId) {
     const cart = getCart();
-    if (cart.includes(gameId)) {
-        showToast("Ce jeu est déjà dans votre panier.");
-        return;
+    const existingItem = cart.find(item => item.id === gameId);
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+        showToast("Quantité mise à jour !");
+    } else {
+        cart.push({ id: gameId, quantity: 1 });
+        showToast("Jeu ajouté au panier !");
     }
-    cart.push(gameId);
+
     saveCart(cart);
-    showToast("Jeu ajouté au panier !");
 }
 
 function removeFromCart(gameId) {
     let cart = getCart();
-    cart = cart.filter(id => id !== gameId);
+    cart = cart.filter(item => item.id !== gameId);
     saveCart(cart);
     renderCart();
 }
 
+function updateQuantity(gameId, delta) {
+    const cart = getCart();
+    const item = cart.find(item => item.id === gameId);
+
+    if (item) {
+        item.quantity += delta;
+        if (item.quantity <= 0) {
+            removeFromCart(gameId);
+            return;
+        }
+        saveCart(cart);
+        renderCart();
+    }
+}
+
 function updateCartCount() {
-    document.getElementById("cartCount").textContent = getCart().length;
+    const cart = getCart();
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    document.getElementById("cartCount").textContent = totalItems;
 }
 
 function renderCart() {
@@ -1182,18 +1203,27 @@ function renderCart() {
     footer.classList.remove("hidden");
 
     let total = 0;
-    container.innerHTML = cart.map(id => {
-        const game = games.find(g => g.id === id);
+    container.innerHTML = cart.map(item => {
+        const game = games.find(g => g.id === item.id);
         if (!game) return "";
-        total += game.price;
+        const itemTotal = game.price * item.quantity;
+        total += itemTotal;
         return `
             <div class="cart-item">
                 <img src="${escapeHtml(game.image)}" alt="${escapeHtml(game.name)}" onerror="this.src='https://placehold.co/80x60/1a1a2e/7b2ff7?text=Game'">
                 <div class="cart-item-info">
                     <h4>${escapeHtml(game.name)}</h4>
-                    <span class="cart-item-price">${game.price.toFixed(2)} &euro;</span>
+                    <span class="cart-item-price">${game.price.toFixed(2)} &euro; x ${item.quantity}</span>
+                    <span class="cart-item-subtotal">${itemTotal.toFixed(2)} &euro;</span>
                 </div>
-                <button class="btn btn-danger btn-sm" onclick="removeFromCart(${game.id})">Supprimer</button>
+                <div class="cart-item-actions">
+                    <div class="quantity-controls">
+                        <button class="btn-quantity" onclick="updateQuantity(${game.id}, -1)">-</button>
+                        <span class="quantity-value">${item.quantity}</span>
+                        <button class="btn-quantity" onclick="updateQuantity(${game.id}, 1)">+</button>
+                    </div>
+                    <button class="btn btn-danger btn-sm" onclick="removeFromCart(${game.id})">Supprimer</button>
+                </div>
             </div>
         `;
     }).join("");
@@ -1201,182 +1231,43 @@ function renderCart() {
     document.getElementById("cartTotal").textContent = total.toFixed(2);
 }
 
-function confirmPurchase() {
-    showCheckout();
-}
-
-// ============ Checkout / Paiement Stripe ============
-
-const STRIPE_PUBLIC_KEY = "pk_test_51SuqtZLFhItYjOyipr5xTYfI85qtq2qQpjRL4pf54ehiUGOKXlKbaAgNZIQrtnQaDTtpV0Y8mH4HtRrneRWBDRpq00yWsJ2Qmz";
-let stripe = null;
-let cardElement = null;
-
-function initStripe() {
-    if (!stripe) {
-        stripe = Stripe(STRIPE_PUBLIC_KEY);
-    }
-}
-
-function showCheckout() {
+async function confirmPurchase() {
     const cart = getCart();
     if (cart.length === 0) {
         showToast("Votre panier est vide.");
         return;
     }
-    showView("checkout");
-}
 
-function renderCheckout() {
-    const cart = getCart();
     const games = getGames();
-    const container = document.getElementById("checkoutItems");
-
-    let total = 0;
-    container.innerHTML = cart.map(id => {
-        const game = games.find(g => g.id === id);
-        if (!game) return "";
-        total += game.price;
-        return `
-            <div class="checkout-item">
-                <span>${escapeHtml(game.name)}</span>
-                <span>${game.price.toFixed(2)} &euro;</span>
-            </div>
-        `;
-    }).join("");
-
-    document.getElementById("checkoutTotal").textContent = total.toFixed(2);
-    document.getElementById("payAmount").textContent = total.toFixed(2);
-
-    // Reset form and show it
-    document.getElementById("paymentForm").reset();
-    document.getElementById("paymentForm").classList.remove("hidden");
-    document.querySelector(".checkout-summary").classList.remove("hidden");
-    document.querySelector(".checkout-form-container").classList.remove("hidden");
-    document.getElementById("paymentSuccess").classList.add("hidden");
-    document.getElementById("payBtn").disabled = false;
-    document.getElementById("payBtnText").classList.remove("hidden");
-    document.getElementById("payBtnLoader").classList.add("hidden");
-    document.getElementById("card-errors").textContent = "";
-
-    // Initialize Stripe Elements
-    initStripe();
-    const elements = stripe.elements({
-        locale: 'fr'
+    const items = cart.map(item => {
+        const game = games.find(g => g.id === item.id);
+        return {
+            name: game.name,
+            price: game.price,
+            quantity: item.quantity,
+            image: game.image
+        };
     });
-
-    // Clear previous card element if exists
-    const cardContainer = document.getElementById("card-element");
-    cardContainer.innerHTML = "";
-
-    // Create card element with custom style
-    cardElement = elements.create("card", {
-        hidePostalCode: true,
-        style: {
-            base: {
-                color: "#e0e0e0",
-                fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-                fontSize: "16px",
-                "::placeholder": {
-                    color: "#a0a0b0"
-                }
-            },
-            invalid: {
-                color: "#e74c3c",
-                iconColor: "#e74c3c"
-            }
-        }
-    });
-
-    cardElement.mount("#card-element");
-
-    // Handle card errors
-    cardElement.on("change", function(event) {
-        const errorElement = document.getElementById("card-errors");
-        if (event.error) {
-            errorElement.textContent = event.error.message;
-        } else {
-            errorElement.textContent = "";
-        }
-    });
-}
-
-async function processPayment(e) {
-    e.preventDefault();
-
-    const cardName = document.getElementById("cardName").value.trim();
-
-    if (cardName.length < 2) {
-        showToast("Veuillez entrer un nom valide.");
-        return;
-    }
-
-    // Show loading
-    document.getElementById("payBtn").disabled = true;
-    document.getElementById("payBtnText").classList.add("hidden");
-    document.getElementById("payBtnLoader").classList.remove("hidden");
-    document.getElementById("card-errors").textContent = "";
 
     try {
-        // Calculer le total
-        const cart = getCart();
-        const games = getGames();
-        let total = 0;
-        const items = [];
-        cart.forEach(id => {
-            const game = games.find(g => g.id === id);
-            if (game) {
-                total += game.price;
-                items.push(game.name);
-            }
-        });
-
-        // Créer le PaymentIntent via le backend
-        const response = await fetch('/api/payment', {
+        const response = await fetch('/api/checkout', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ amount: total, items: items })
+            body: JSON.stringify({ items })
         });
 
-        const { clientSecret, error: backendError } = await response.json();
-
-        if (backendError) {
-            throw new Error(backendError);
-        }
-
-        // Confirmer le paiement avec Stripe
-        const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
-            payment_method: {
-                card: cardElement,
-                billing_details: {
-                    name: cardName
-                }
-            }
-        });
+        const { url, error } = await response.json();
 
         if (error) {
-            document.getElementById("card-errors").textContent = error.message;
-            document.getElementById("payBtn").disabled = false;
-            document.getElementById("payBtnText").classList.remove("hidden");
-            document.getElementById("payBtnLoader").classList.add("hidden");
+            showToast("Erreur: " + error);
             return;
         }
 
-        if (paymentIntent.status === 'succeeded') {
-            // Paiement réussi !
-            saveCart([]);
-            document.getElementById("paymentForm").classList.add("hidden");
-            document.querySelector(".checkout-summary").classList.add("hidden");
-            document.querySelector(".checkout-form-container").classList.add("hidden");
-            document.getElementById("paymentSuccess").classList.remove("hidden");
-            updateCartCount();
-        }
-
+        // Redirection vers Stripe Checkout
+        window.location.href = url;
     } catch (err) {
         console.error(err);
-        document.getElementById("card-errors").textContent = "Erreur de paiement. Réessayez.";
-        document.getElementById("payBtn").disabled = false;
-        document.getElementById("payBtnText").classList.remove("hidden");
-        document.getElementById("payBtnLoader").classList.add("hidden");
+        showToast("Erreur de connexion au serveur.");
     }
 }
 
@@ -1467,7 +1358,6 @@ function resetGameForm() {
 function showView(view) {
     document.getElementById("catalogView").classList.add("hidden");
     document.getElementById("cartView").classList.add("hidden");
-    document.getElementById("checkoutView").classList.add("hidden");
     document.getElementById("adminView").classList.add("hidden");
 
     if (view === "catalog") {
@@ -1476,9 +1366,6 @@ function showView(view) {
     } else if (view === "cart") {
         document.getElementById("cartView").classList.remove("hidden");
         renderCart();
-    } else if (view === "checkout") {
-        document.getElementById("checkoutView").classList.remove("hidden");
-        renderCheckout();
     } else if (view === "admin") {
         const user = getCurrentUser();
         if (!user || !user.isAdmin) {
