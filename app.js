@@ -1270,6 +1270,7 @@ function renderCheckout() {
 
     // Create card element with custom style
     cardElement = elements.create("card", {
+        hidePostalCode: true,
         style: {
             base: {
                 color: "#e0e0e0",
