@@ -910,6 +910,13 @@ const ADMIN_ACCOUNT = {
     isAdmin: true
 };
 
+const TEST_ACCOUNT = {
+    pseudo: "Client Test",
+    email: "test@gameshop.com",
+    password: "test123",
+    isAdmin: false
+};
+
 // ============ Initialisation ============
 
 function initData() {
@@ -917,7 +924,17 @@ function initData() {
         localStorage.setItem("games", JSON.stringify(GAMES_DEFAULT));
     }
     if (!localStorage.getItem("users")) {
-        localStorage.setItem("users", JSON.stringify([ADMIN_ACCOUNT]));
+        localStorage.setItem("users", JSON.stringify([ADMIN_ACCOUNT, TEST_ACCOUNT]));
+    } else {
+        // Ajouter les comptes par défaut s'ils n'existent pas
+        const users = JSON.parse(localStorage.getItem("users"));
+        if (!users.find(u => u.email === ADMIN_ACCOUNT.email)) {
+            users.push(ADMIN_ACCOUNT);
+        }
+        if (!users.find(u => u.email === TEST_ACCOUNT.email)) {
+            users.push(TEST_ACCOUNT);
+        }
+        localStorage.setItem("users", JSON.stringify(users));
     }
 }
 
@@ -981,6 +998,17 @@ function showAuthError(msg) {
     const el = document.getElementById("authError");
     el.textContent = msg;
     el.classList.remove("hidden");
+}
+
+function togglePassword(inputId, btn) {
+    const input = document.getElementById(inputId);
+    if (input.type === "password") {
+        input.type = "text";
+        btn.textContent = "Masquer";
+    } else {
+        input.type = "password";
+        btn.textContent = "Voir";
+    }
 }
 
 function register(e) {

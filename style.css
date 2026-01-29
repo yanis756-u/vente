@@ -466,6 +466,36 @@ main h2 {
     border-color: var(--accent);
 }
 
+.password-field {
+    position: relative;
+    width: 100%;
+}
+
+.password-field input {
+    width: 100%;
+    padding-right: 45px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding: 5px 8px;
+    border-radius: 4px;
+    transition: color 0.2s, background 0.2s;
+}
+
+.toggle-password:hover {
+    color: var(--accent);
+    background: var(--bg-card);
+}
+
 .modal-switch {
     text-align: center;
     margin-top: 16px;
